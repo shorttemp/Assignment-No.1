@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int num1;
+	cout << "Enter 1st Number: ";  /// ASK USER INPUT
+ 	    cin >> num1;
+
+		
+	if (num1 % 2 == 0)  /// TRUE IF NUMBER IS EVEN
+	{
+		if (num1 % 4 == 0)    /// TRUE IF NUMBER IS DIVISIBLE BY 4
+		{
+			cout << num1 << " is Even" << endl;
+			cout << num1 << " is divisible by 4";
+		}
+		
+		else     /// WILL RUN IF NUMBER IS NOT DIVISIBLE BY 4
+		{
+			cout << num1 << " is Even" << endl;
+			cout << num1 << " is not divisible by 4" << endl;
+		}
+	}
+	
+	if (num1 % 2 != 0)  /// TRUE IF NUMBER IS ODD
+	{
+		if (num1 % 3 == 0)  /// TRUE IF NUMBER IS DIVISIBLE BY 3
+		{
+			cout << num1 << " is Odd." << endl;
+			cout << num1 << " is divisible by 3.";
+		}
+		else   /// WILL RUN IF NUMBER IS NOT DIVISIBLE BY 3
+		{
+			cout << num1 << " is Odd." << endl;
+			cout << num1 << " is not divisible by 3.";
+		}
+	}
+	return 0;
+}
