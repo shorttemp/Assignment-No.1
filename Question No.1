@@ -1,0 +1,135 @@
+# include <iostream>
+#include <string>
+using namespace std;
+int main() {
+
+	/// PRINT THE MENU FIRST WITH CHOICE TO USER AND SAVE CHOICE OF DISH
+
+	cout << "Choice     " << "Meal          " << "  Per Kg Price in Pakistani rupees" << endl;
+	cout << "1          " << "Chicken Handi " << "  1800" << endl;
+	cout << "2          " << "Chicken Karahi" << "  2000" << endl;
+	cout << "3          " << "Chicken Tikka " << "  2200" << endl;
+	cout << "4          " << "Chicken Haleem" << "  500 " << endl;
+	cout << "5          " << "Creamy Chicken" << "  2500" << endl;
+	cout << "*********************************************************************" << endl;
+	          int choice;
+	cout << "Please enter your choice: ";
+	          cin >> choice;
+	cout << "*********************************************************************" << endl;
+	
+	/// SAVE THE PRICE PER KG OF EACH CHOICE  
+	/// USING IF CONDITION EQUAL TO CHOICE THEN SAVE THE PRICE FROM MENU DATA
+	
+	double per_kg;
+	if (choice == 1)
+	{
+		per_kg = 1800;
+	}
+	else if (choice == 2)
+	{
+		per_kg = 2000;
+	}
+	else if (choice == 3)
+	{
+		per_kg = 2200;
+	}
+	else if (choice == 4)
+	{
+		per_kg = 500;
+	}
+	else if (choice == 5)
+	{
+		per_kg = 2500;
+	}
+	else if (choice > 5)
+	{
+		cout << "You have entered wrong choice of dish.";
+	}
+	
+	/// ASK USER HOW MUCH KG'S  HE WANTS AND SAVE IT
+
+	double quantity;
+	cout << "Please enter you quantity in kgs: ";
+	cin >> quantity;
+	cout << "*********************************************************************" << endl;
+
+	/// OFFER DIFFERENT CURRENCIES TO USER AND SAVE IT
+
+	cout << "Choice       " << "Currency              " << endl;
+	cout << "1            " << "Pakistani Rupees (PKR)" << endl;
+	cout << "2            " << "Euro                  " << endl;
+	cout << "3            " << "US Dollars (USD)      " << endl;
+	cout << "*********************************************************************" << endl;
+	int currency;
+	cout << "Please enter the currency in which you want to pay: " << endl;
+	cin >> currency;
+	cout << "*********************************************************************" << endl;
+
+	/// CALCULATE THE MEAL PRICE AS PER QUANTITY TOLD BY USER
+
+	double meal_price = quantity * per_kg;
+
+	/// CALCULATE SALES TAX WITH FOLLOWING DATA:
+	/// LESS THAN EQUAL TO 1000 = NO SALES TAX
+	/// BETWEEN 1000 AND 3000   = 2% SALES TAX
+	/// OVER 3000               = 5% SALES TAX
+
+	double sales_tax;
+
+	if (meal_price <= 1000)
+	{
+		sales_tax = 0;
+	}
+	else if ((meal_price > 1000) && (meal_price <= 3000))
+	{
+		sales_tax = meal_price * 0.02;
+	}
+	else
+	{
+		sales_tax = meal_price * 0.05;
+	}
+
+	/// CALCULATE TOTAL PRICE OF MEAL WITH THE MEAL PRICE AND THE SALES TAX (IN PKR)
+
+	double total_amount = meal_price + sales_tax;
+
+	/// NOW CHANGE THE TOTAL PRICE OF MEAL (IN PKR) AS REQUIRED BY USER WITH EXCHANGE CURRENCY RATE WITH DATA:
+	/// 1 DOLLAR = 165 RUPEES or 1 RUPEES = 1 / 165 DOLLAR
+	/// 1 EURO   = 193 RUPEES or 1 RUPEES = 1 / 193 EURO
+
+	string sign;
+	double usdrate = 165;
+	double eurorate = 193;
+
+	if (currency == 2)
+	{
+		sign = "€";
+		total_amount = total_amount / eurorate;
+		meal_price = meal_price / eurorate;
+		sales_tax = sales_tax / eurorate;
+	}
+	else if (currency == 3)
+	{
+		sign = "$";
+		total_amount = total_amount / usdrate;
+		meal_price = meal_price / usdrate;
+		sales_tax = sales_tax / usdrate;
+	}
+	else if (currency == 1)
+	{
+		sign = 'Rs.';
+	}
+	else 
+	{
+		cout << "You have entered wrong currency." << endl;
+	}
+
+	/// PRINT CHECKOUT FORMAT FOR USER
+
+	cout << "CHECKOUT     " << "PRICE   "   << endl;
+	cout << "Meal Price : " << sign << meal_price   << endl;
+	cout << "Sales Tax  : " << sign << sales_tax    << endl;
+	cout << "Total Price: " << sign << total_amount << endl;
+
+	return 0;
+}
