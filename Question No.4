@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+int main() {
+	
+	/// USING SWITCH AS PER QUESTION REQUIRMENTS
+	/// NOT USE 
+
+	int x, y;
+	cout << "Enter x Co-ordinate: ";    /// ASK USER X-CORDINATE 
+	     cin >> x;
+	cout << "Enter y Co-ordinate: ";    /// ASK USER Y-CORDINATE
+	     cin >> y;
+
+		 int quadrant;          /// VARIABLE FOR QUADRANT 1,2,3,4
+		 
+    if (x == 0)           /// X IS EQUAL TO ZERO
+	{
+		if (y == 0)                 /// Y IS EQUAL TO ZERO & X IS EQUAL TO ZERO
+		{
+			cout << "Your Co-ordinates lies on origin.";
+		}
+		else                        /// X IS EQUAL TO ZERO & Y IS NON-ZERO
+		{
+			cout << "Your Co-ordinates lies on Y-Axis.";
+		}
+	}
+	else if (y == 0)               /// Y IS EQUAL TO ZERO
+	{
+		cout << "Your Co-ordinates lies on X-Axis."; 
+		
+     }
+	
+	
+	
+	else     /// IF BOTH X & Y ARE NON ZERO
+	{
+		switch (x > 0)     
+		{
+		case true:          /// X IS POSITIVE
+			switch (y > 0)       /// FOR VALUE OF Y
+			{
+			case true:              /// Y IS POSITIVE & X IS POSITIVE WILL LIE IN FIRST QUADRANT
+				quadrant = 1;
+				break;
+
+			default: quadrant = 4;  /// Y IS NEGATIVE & X IS POSITIVE WILL LIE IN FOURTH QUADRANT
+				break;
+			}
+			break;
+
+		case false:                /// X IS NEGATIVE
+			switch (y < 0)
+			{
+			case true:              /// Y IS NEGATIVE & X IS NEGATIVE WILL LIE IN THIRD QUADRANT
+				quadrant = 3;
+				break;
+			default: quadrant = 2;       /// Y IS POSITIVE & X IS NEGATIVE WILL LIE IN SECOND QUADRANT
+				break;
+			}
+			break;
+		default: break;
+		}
+
+//// USE SWITCH STATEMENT FOR OUTPUT OF QUADRANT W-R-T THE INTEGER VALUE OF QUADRANT SAVED
+		
+	switch (quadrant)\
+	{
+	case 1: cout << "Your Co-ordinates lies in I-Quadrant."; break;
+	case 2: cout << "Your Co-ordinates lies in II-Quadrant."; break;
+	case 3: cout << "Your Co-ordinates lies in III-Quadrant."; break;
+	case 4: cout << "Your Co-ordinates lies in IV-Quadrant."; break;
+	}
+		
+		
+	}
+
+	return 0;
+}
