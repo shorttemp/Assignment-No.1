@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+int main() {
+	
+	/// SAVE 2 NUMBERS AND OPERATION FROM USER
+	
+	int num1, num2;    
+	char op;
+	cout << "Enter 1st Number: ";
+	cin >> num1;
+	cout << "Enter 2nd Number: ";
+	cin >> num2;
+	cout << "Enter you Operation: ";
+	cin >> op;
+	
+	/// TRUE/FALSE STATEMENTS
+
+	bool great_than = num1 > num2;            /// TRUE IF 1ST IS GREATER THAN 2ND
+	bool less_than = num1 < num2;           /// TRUE IS 1ST IS LESS THAN 2ND
+	bool equal = num1 == num2;                           /// TRUE IF 1ND IS EQUAL TO 2ND
+	bool even = ((num1 % 2 == 0) && (num2 % 2 == 0));                    /// TRUE IF 1ST AND 2ND ARE EVEN(BOTH)
+	bool odd = ((num1 % 2 != 0) || (num2 % 2 != 0));                            /// TRUE IF 1ST OR 2ND IS ODD
+	
+	/// SWITCH STATEMENTS USED FOR SPECIFIC REQUIRMENTS
+
+	switch (op) {
+	
+	case '+':                                                    /// ADDITION
+		cout << num1 << op << num2 << " = " << num1 + num2;
+		break;
+	
+	case '-':                                                    /// SUBTRACTION
+		cout << num1 << op << num2 << " = " << num1 - num2;
+		break;
+	
+	case '*':                                                    /// MULTIPLICATION
+		cout << num1 << op << num2 << " = " << num1 * num2;
+		break;
+	
+	case '/':                                                    /// DIVISION
+		
+		switch (num2 == 0) {       
+		 case true:
+			cout << "Denominator cannot be zero.";  /// RUN IF 2ND IS ZERO 
+			break;          
+
+		 default: cout << num1 << op << num2 << " = " << num1 / num2;     /// RUN IF 2ND IS NON-ZERO
+		 }
+		
+		break;
+	
+	case '%':                                                    /// MODULUS
+		cout << num1 << op << num2 << " = " << num1 % num2;
+		break;
+	
+	case '>':                                                    /// GREATER THAN
+		
+		switch (great_than) {
+		case (true): cout << num1 << " is greater than " << num2; break;    /// RUN IF 1ST > 2ND
+
+		default: cout << num1 << " is not greater than " << num2;      /// IF 1ST IS NOT GREATER THAN 2ND
+		}
+		
+		break;
+	
+	case '<':                                                    /// LESS THAN
+		
+		switch (less_than) {
+		case (true): cout << num1 << op << num2 << " is true."; break;    /// RUN IF 1ST < 2ND
+
+		
+		default: cout << num1 << " is not less than " << num2;          /// IF 1ST IS NOT LESS THAN 2ND
+		}
+		
+		break;
+	
+	case '&':                                                   /// EVEN
+		 
+		switch (even)
+		{
+		case (true): cout << num1 << " and " << num2 << " are both even."; break;     /// RUN IF BOTH ARE EVEN
+
+		default: cout << num1 << " and " << num2 << " are not even.";       /// IF BOTH ARE NOT EVEN
+		}
+		
+		break;
+	
+	case '|':                                                 /// ATLEAST ONE ODD
+		
+		switch (odd)
+		{
+		case (true): cout << num1 << " or " << num2 << " is odd"; break;       /// RUN IF ONE IS ODD 
+
+		default: cout << num1 << " or " << num2 << " is not even.";            /// IF NOONE IS ODD
+		}
+		
+		break;
+	
+    default:                                               /// IF THERE IS NO OPERATOR
+		cout << "Enter a valid operation";
+
+
+	}
+	return 0;
+}
