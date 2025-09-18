@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+int main() {
+	/// DECLARE VARIABLES FOR DATE OF BIRTH AND CURRENT DATE
+	int birthday, birthmonth, birthyear;
+	int currentday, currentmonth, currentyear;
+
+	/// ASK USER HIS DATE OF BIRTH
+
+	cout << "Enter you Date of Birth (date month year): ";
+	cin >> birthday >> birthmonth >> birthyear;
+
+	/// ASK USER THE CURRENT DATE
+
+	cout << "Enter Current Date (date month year): ";
+	cin >> currentday >> currentmonth >> currentyear;
+
+	/// SIMPLE CALCULATION FOR YEARS, THEN MONTHS, THEN DAYS
+
+	int year = currentyear - birthyear;
+	int month = currentmonth - birthmonth;
+	int date = currentday - birthday;
+	
+	/// IF BIRTH MONTH HASN'T ARRIVED
+
+	if (birthmonth > currentmonth)
+	{
+		month += 12;         /// ADDING 12 MONTHS IN AGE
+		year--;              /// BORROWING FROM A YEAR
+	}
+
+	else
+	{
+		month = month;        /// NO CHANGE IN AGE
+	}
+
+	/// IF BIRTH DAY HASN'T ARRIVED
+
+	if (birthday > currentday)
+	{
+		date += 30;       /// ADDING 30 DAYS IN AGE
+		month--;          /// BORROWING FROM A MONTH
+	}
+    
+	else
+	{
+		date = date;        /// NO CHANGE IN AGE
+	}
+
+	/// OUTPUT TO USER HIS AGE
+
+	cout << "Your age is: " << year << " years, " << month << " months, and " << date << " days";
+
+	return 0;
+}
